@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+
+	<body>
+		<div class="s_left">
+			<h4 class="s_text1">XX状态</h4>
+			<table class="s_table1" border="0" cellspacing="0" cellpadding="">
+				<tr style="color:#fff">
+					<th>XX剩余用量</th>
+					<th>数量</th>
+					<th>百分比</th>
+				</tr>
+				<tr style="color:red">
+					<td>0-10%</td>
+					<td>0</td>
+					<td>0.00%</td>
+				</tr>
+				<tr style="color:yellow">
+					<td>11-30%</td>
+					<td>0</td>
+					<td>0.00%</td>
+				</tr>
+				<tr style="color:green">
+					<td>31-60%</td>
+					<td>0</td>
+					<td>0.00%</td>
+				</tr>
+				<tr style="color:green">
+					<td>>60%</td>
+					<td>52</td>
+					<td>100.00%</td>
+				</tr>
+			</table>
+			<div id="container" style="min-width:250px;height:250px;"></div>
+			<div id="container1" style="min-width:250px;height:250px;"></div>
+		</div>
+		<div class="s_middle">
+			<div>
+				<p><span class="s_box">会员总量</span><span class="s_world">177210</span></p>
+				<p><span class="s_box">XXX2018成交量</span><span class="s_world">177</span></p>
+				<p><span class="s_box">XXX2018成交量</span><span class="s_world">---</span></p>
+			</div>
+			<div id="container_map" style="height:450px;"></div>
+		</div>
+		<div class="s_right">
+			<div class="s_add">
+				<h4 class="s_text1">第二波预购</h4>
+				<table class="s_table2" id="s_table2" border="0" cellspacing="0" cellpadding="">
+					<tr>
+						<th>城市</th>
+						<th>型号</th>
+						<th>数量</th>
+						<th>金额</th>
+					</tr>
+				</table>
+				<p class="s_divide"><span>总数量</span>
+					<span>9</span>
+					<span>总金额</span>
+					<span>16660</span></p>
+			</div>
+			<!--第三个表格-->
+			<div class="s_add">
+				<h4 class="s_text1">第一波预购</h4>
+				<table class="s_table2" border="0" cellspacing="0" cellpadding="">
+					<tr>
+						<th>城市</th>
+						<th>型号</th>
+						<th>数量</th>
+						<th>金额</th>
+					</tr>
+					<tr>
+						<td>苏州市</td>
+						<td>FS-HELLO-W</td>
+						<td>2</td>
+						<td>3720</td>
+					</tr>
+					<tr>
+						<td>苏州市</td>
+						<td>FS-HELLO-W</td>
+						<td>2</td>
+						<td>3720</td>
+					</tr>
+					<tr>
+						<td>苏州市</td>
+						<td>FS-HELLO-W</td>
+						<td>2</td>
+						<td>3720</td>
+					</tr>
+					<tr>
+						<td>苏州市</td>
+						<td>FS-HELLO-W</td>
+						<td>2</td>
+						<td>3720</td>
+					</tr>
+					<tr>
+						<td>苏州市</td>
+						<td>FS-HELLO-W</td>
+						<td>2</td>
+						<td>3720</td>
+					</tr>
+					<tr>
+						<td>苏州市</td>
+						<td>FS-HELLO-W</td>
+						<td>2</td>
+						<td>3720</td>
+					</tr>
+					<tr>
+						<td>--</td>
+						<td>--</td>
+						<td>--</td>
+						<td>--</td>
+					</tr>
+				</table>
+				<p class="s_divide"><span>总数量</span>
+					<span>9</span>
+					<span>总金额</span>
+					<span>16660</span></p>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/highcharts.js"></script>
+		<script type="text/javascript" src="js/map.js"></script>
+		<script type="text/javascript" src="js/china.js"></script>
+		<script type="text/javascript" src="js/colunm.js"></script>
+		<script type="text/javascript">
+			$.post("table1.json", function(res) {
+				var obj = JSON.parse(res);
+				for(i in obj) {
+					$("#s_table2").append("<tr><td>" + obj[i].city + "</td><td>" + obj[i].model + "</td><td>" + obj[i].num + "</td><td>" + obj[i].money + "</td></tr>");
+				}
+				$("#s_table2").append("<tr><td>--</td><td>--</td><td>--</td><td>--</td></tr>");
+			})
+		</script>
+	</body>
+
+</html>
